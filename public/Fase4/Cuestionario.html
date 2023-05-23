@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz CSS-Grid Joseph Coral</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #a2e1ff;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      padding: 20px;
+      background-color: #def8e8;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #0066cc;
+    }
+
+    h3 {
+      color: #990000;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    input[type="radio"] {
+      margin-bottom: 5px;
+    }
+
+    input[type="button"] {
+      background-color: #0066cc;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+      background-color: #003366;
+    }
+
+    .highlight {
+      background-color: #e6e6e6;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <script>
+    function verificarRespuestas() {
+      // Obtener las respuestas seleccionadas por el usuario
+      var pregunta1 = document.querySelector('input[name="pregunta1"]:checked').value;
+      var pregunta2 = document.querySelector('input[name="pregunta2"]:checked').value;
+      var pregunta3 = document.querySelector('input[name="pregunta3"]:checked').value;
+      var pregunta4 = document.querySelector('input[name="pregunta4"]:checked').value;
+      var pregunta5 = document.querySelector('input[name="pregunta5"]:checked').value;
+
+      // Verificar las respuestas
+      var puntaje = 0;
+      if (pregunta1 === "opcionA") {
+        puntaje++;
+      }
+      if (pregunta2 === "opcionC") {
+        puntaje++;
+      }
+      if (pregunta3 === "opcionB") {
+        puntaje++;
+      }
+      if (pregunta4 === "opcionA") {
+        puntaje++;
+      }
+      if (pregunta5 === "opcionB") {
+        puntaje++;
+      }
+
+      // Mostrar el resultado
+      var resultado = "Obtuviste " + puntaje + " de 5 respuestas correctas.";
+      alert(resultado);
+
+      // Reiniciar el formulario
+      document.querySelector('input[name="pregunta1"]:checked').checked = false;
+      document.querySelector('input[name="pregunta2"]:checked').checked = false;
+      document.querySelector('input[name="pregunta3"]:checked').checked = false;
+      document.querySelector('input[name="pregunta4"]:checked').checked = false;
+      document.querySelector('input[name="pregunta5"]:checked').checked = false;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 align="Center">Quiz CSS-Grid Joseph Coral</h1>
+    </header>
+    <section>
+      <form>
+        <h3>Pregunta 1:</h3>
+        <p>¿Cuál de las siguientes propiedades se utiliza para definir el número de columnas en una cuadrícula CSS Grid?</p>
+        <input type="radio" name="pregunta1" value="opcionA"> a) grid-template-columns<br>
+        <input type="radio" name="pregunta1" value="opcionB"> b) grid-column<br>
+        <input type="radio" name="pregunta1" value="opcionC"> c) grid-auto-columns<br>
+        <input type="radio" name="pregunta1" value="opcionD"> d) grid-area<br>
+    
+        <h3>Pregunta 2:</h3>
+        <p>¿Cuál es la función de la propiedad grid-template-areas en CSS Grid?</p>
+        <input type="radio" name="pregunta2" value="opcionA"> a) Define el tamaño de las áreas en la cuadrícula.<br>
+        <input type="radio" name="pregunta2" value="opcionB"> b) Establece el número de filas en la cuadrícula.<br>
+        <input type="radio" name="pregunta2" value="opcionC"> c) Define las áreas nombradas y su ubicación en la cuadrícula.<br>
+        <input type="radio" name="pregunta2" value="opcionD"> d) Determina el orden de los elementos en la cuadrícula.<br>
+    
+        <h3>Pregunta 3:</h3>
+        <p>¿Cuál de las siguientes propiedades se utiliza para establecer el tamaño de una fila o columna en CSS Grid?</p>
+        <input type="radio" name="pregunta3" value="opcionA"> a) grid-gap<br>
+        <input type="radio" name="pregunta3" value="opcionB"> b) grid-template-rows<br>
+        <input type="radio" name="pregunta3" value="opcionC"> c) grid-row<br>
+        <input type="radio" name="pregunta3" value="opcionD"> d) grid-auto-rows<br>
+    
+        <h3>Pregunta 4:</h3>
+        <p>¿Qué función se utiliza para crear un tamaño flexible en CSS Grid que se repite varias veces?</p>
+        <input type="radio" name="pregunta4" value="opcionA"> a) repeat()<br>
+        <input type="radio" name="pregunta4" value="opcionB"> b) calc()<br>
+        <input type="radio" name="pregunta4" value="opcionC"> c) minmax()<br>
+        <input type="radio" name="pregunta4" value="opcionD"> d) fit-content()<br>
+    
+        <h3>Pregunta 5:</h3>
+        <p>¿Cuál de las siguientes opciones es una característica clave de CSS Grid?</p>
+        <input type="radio" name="pregunta5" value="opcionA"> a) Soporte solo para navegadores modernos.<br>
+        <input type="radio" name="pregunta5" value="opcionB"> b) Capacidad de crear diseños bidimensionales.<br>
+        <input type="radio" name="pregunta5" value="opcionC"> c) No es compatible con diseños responsivos.<br>
+        <input type="radio" name="pregunta5" value="opcionD"> d) Reemplazo de flexbox en todas las situaciones de diseño.<br>
+    
+        <br>
+        <input type="button" value="Enviar respuestas" onclick="verificarRespuestas()">
+      </form>
+    </section>
+    <footer>
+      <p align="Center">Derechos de autor &copy; 2023. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  
+</body>
+</html>
